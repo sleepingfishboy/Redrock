@@ -15,7 +15,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.InnerHolder> {
 
     private ArrayList<Fruit> data;
 
-    public Adapter(ArrayList<Fruit> data) {
+    public Adapter(ArrayList<Fruit> data, MainActivity mainActivity) {
         this.data = data;//传入数据
     }
     @NonNull
