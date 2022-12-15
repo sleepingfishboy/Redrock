@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     private ImageView mImgHead;
     private EditText mEtUsername;
     private EditText mEtPassword;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_main);
         mImgHead = findViewById(R.id.img_main_head);
         mEtPassword = findViewById(R.id.et_main_password);
         mEtUsername = findViewById(R.id.et_main_username);
@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view1) {
 
-                    View view = getLayoutInflater().inflate(R.layout.activity_main4, null);
+                    View view = getLayoutInflater().inflate(R.layout.sign_in_main, null);
 
                     final EditText et_register_username = (EditText) view.findViewById(R.id.et_register_username);
                     final EditText et_register_password = (EditText) view.findViewById(R.id.et_register_password);
-                    AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).setTitle("注册")//设置对话框的标题
+                    AlertDialog dialog = new AlertDialog.Builder(Login.this).setTitle("注册")//设置对话框的标题
                             .setView(view).setNegativeButton("取消", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                                     eit.putString("account", name);
                                     eit.putString("password", password);
                                     eit.apply();
-                                    Toast.makeText(MainActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "注册成功", Toast.LENGTH_SHORT).show();
 
 
                                 }
@@ -96,11 +96,11 @@ public class MainActivity extends AppCompatActivity {
             }
             if (account1.equals(account) && password1.equals(password)) {
 
-                Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                Toast.makeText(Login.this, "登录成功", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Login.this, ThreeG_Story.class);
                 startActivity(intent);
             } else {
-                Toast.makeText(MainActivity.this, "登录失败", Toast.LENGTH_LONG).show();
+                Toast.makeText(Login.this, "登录失败", Toast.LENGTH_LONG).show();
             }
         }
     }
